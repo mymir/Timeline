@@ -12,27 +12,35 @@ import event.Event;
  *
  */
 public class Timeline {
-	/** */
+	/** The timeline's title. */
 	private String title;
-	/** */
+	/** The timeline's start date. */
 	private int startDate;
-	/** */
+	/** The timeline's end date. */
 	private int endDate;
-	/** */
+	/** A list of the timeline's events. */
 	private ArrayList<Event> events;
-
-	/**
+	
+	/**Creates a new Timeline.
 	 * 
+	 * @param start the timeline's start date
+	 * @param end the timeline's end date
+	 * @param title the timeline's title
+	 */
+	public Timeline(int start, int end, String title) {
+		setStartDate(start);
+		setEndDate(end);
+		setTitle(title);
+		events = new ArrayList<Event>();
+	}
+	
+	/**Creates a new Timeline.
+	 * 
+	 * @param start the timeline's start date
+	 * @param end the timeline's end date
 	 */
 	public Timeline(int start, int end) {
 		this(start, end, "My Timeline");
-	}
-	
-	/**
-	 * 
-	 */
-	public Timeline(int start, int end, String title) {
-		
 	}
 
 	/**
