@@ -75,6 +75,9 @@ public class Event implements Comparable<Event> {
 	 * @param name the name to set
 	 */
 	public void setName(String name) {
+		if(name == null || name.equals("")) {
+			throw new IllegalArgumentException("Name cannot be empty.");
+		}
 		this.name = name;
 	}
 
@@ -91,6 +94,9 @@ public class Event implements Comparable<Event> {
 	 * @param description the description to set
 	 */
 	public void setDescription(String description) {
+		if(description == null) {
+			throw new IllegalArgumentException("Description cannot be null.");
+		}
 		this.description = description;
 	}
 
@@ -107,6 +113,9 @@ public class Event implements Comparable<Event> {
 	 * @param location the location to set
 	 */
 	public void setLocation(String location) {
+		if(location == null) {
+			throw new IllegalArgumentException("Location cannot be null.");
+		}
 		this.location = location;
 	}
 
@@ -123,6 +132,9 @@ public class Event implements Comparable<Event> {
 	 * @param year the year to set
 	 */
 	public void setYear(int year) {
+		if(year < 0) {
+			throw new IllegalArgumentException("Invalid Year.");
+		}
 		this.year = year;
 	}
 
@@ -139,6 +151,9 @@ public class Event implements Comparable<Event> {
 	 * @param month the month to set
 	 */
 	public void setMonth(int month) {
+		if(month < 0 || month > 12) {
+			throw new IllegalArgumentException("Invalid Month.");
+		}
 		this.month = month;
 	}
 
@@ -155,6 +170,19 @@ public class Event implements Comparable<Event> {
 	 * @param day the day to set
 	 */
 	public void setDay(int day) {
+		if(month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
+			if(day < 0 || day > 31) {
+				throw new IllegalArgumentException("Invalid Day.");
+			}
+		} else if(month == 4 || month == 6 || month == 9 || month == 11) {
+			if(day < 0 || day > 30) {
+				throw new IllegalArgumentException("Invalid Day.");
+			}
+		} else {
+			if(day < 0 || day > 28) {
+				throw new IllegalArgumentException("Invalid Day.");
+			}
+		}
 		this.day = day;
 	}
 
