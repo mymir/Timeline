@@ -3,9 +3,8 @@
  */
 package timeline;
 
-import java.util.ArrayList;
-
 import event.Event;
+import util.SortedLinkedList;
 
 /**
  * @author Rafael Zingle
@@ -19,7 +18,7 @@ public class Timeline {
 	/** The timeline's end date. */
 	private int endDate;
 	/** A list of the timeline's events. */
-	private ArrayList<Event> events;
+	private SortedLinkedList<Event> events;
 	
 	/**Creates a new Timeline.
 	 * 
@@ -31,7 +30,7 @@ public class Timeline {
 		setStartDate(start);
 		setEndDate(end);
 		setTitle(title);
-		events = new ArrayList<Event>();
+		events = new SortedLinkedList<Event>();
 	}
 	
 	/**Creates a new Timeline.
@@ -88,14 +87,14 @@ public class Timeline {
 	/**
 	 * @return the events
 	 */
-	public ArrayList<Event> getEvents() {
+	public SortedLinkedList<Event> getEvents() {
 		return events;
 	}
 
 	/**
 	 * @param events the events to set
 	 */
-	public void setEvents(ArrayList<Event> events) {
+	public void setEvents(SortedLinkedList<Event> events) {
 		this.events = events;
 	}
 
